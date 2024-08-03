@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('title')->unique();
             $table->string('slug')->unique();
+            $table->string('color')->default('#808080');
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('password')->nullable();
             $table->string('color')->default('#808080');
             $table->tinyInteger('is_pinned')->default(0)->comment('0: not pinned, 1: pinned');
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
             $table->softDeletes();
         });
