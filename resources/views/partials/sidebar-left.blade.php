@@ -7,7 +7,14 @@
         @livewire('overview')
     </div>
     <div class="mb-4">
-        <p class="text-xs font-medium mb-2">My List</p>
+        <div class="flex items-center justify-between mb-2">
+            <p class="text-xs font-medium">My List</p>
+            <button>
+                <span class="material-symbols-outlined">
+                    add_box
+                </span>
+            </button>
+        </div>
         @livewire('task-list')
     </div>
     <div class="mb-4">
