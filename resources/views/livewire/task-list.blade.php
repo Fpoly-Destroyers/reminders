@@ -1,4 +1,4 @@
-<div class="h-60 overflow-y-auto space-y-2">
+<div class="h-60 overflow-y-auto space-y-2 no-scrollbar">
 
     <div class="px-4 py-1 rounded flex items-center justify-between bg-gray-200">
         <div class="flex items-center gap-2">
