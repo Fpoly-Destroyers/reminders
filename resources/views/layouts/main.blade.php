@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @livewireStyles
+
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <style>
@@ -17,7 +17,17 @@
                 'GRAD' -25,
                 'opsz' 24
         }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
     </style>
+    @yield('styles')
+    @livewireStyles
 </head>
 
 <body>
@@ -26,7 +36,7 @@
             @include('partials.sidebar-left')
         </div>
         <div class="col-span-6">
-            <div class="border-r border-gray-200 p-4 pb-0">
+            <div class="border-r border-gray-200 px-4">
                 @yield('content')
             </div>
         </div>
@@ -35,6 +45,7 @@
         </div>
     </div>
 
+    @yield('scripts')
     @livewireStyles
 </body>
 
