@@ -33,9 +33,9 @@
     <div class="px-4 py-1 rounded flex items-center justify-between bg-gray-200 text-black">
         <div class="flex items-center gap-2">
             <span class="material-symbols-outlined">
-                lock
+                lock_open
             </span>
-            <p class="text-xs">Lock List</p>
+            <p class="text-xs">Unlock List</p>
         </div>
         <p class="text-sm">2</p>
     </div>

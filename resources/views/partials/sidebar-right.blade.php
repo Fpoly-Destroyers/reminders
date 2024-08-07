@@ -1,3 +1,4 @@
-<div class="h-screen">
-    <!-- Simplicity is the ultimate sophistication. - Leonardo da Vinci -->
+<div class="h-screen p-4">
+    {{-- Render component tuy theo route --}}
+    @livewire('add-list')
 </div>

@@ -4,6 +4,12 @@
 
 @section('content')
     <div class="h-screen overflow-y-auto">
+        <!-- Kiem tra neu list bi lock thi hien thi doan nay -->
+        <!-- <div>
+            @livewire('auth-list')
+        </div> -->
+
+        <!-- List khong bi lock thi hien thi doan nay -->
         <div class="flex items-start justify-between mb-4">
             <p class="font-semibold text-xl text-blue-700 mb-4">List title</p>
             <button type="submit"
@@ -14,7 +20,7 @@
             </button>
         </div>
         <div>
-            @for ($i = 0; $i < 20; $i++)
+            @for ($i = 0; $i < 10; $i++)
                 @livewire('task')
             @endfor
         </div>

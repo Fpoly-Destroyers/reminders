@@ -26,11 +26,11 @@
             @include('partials.sidebar-left')
         </div>
         <div class="col-span-6">
-            <div class="border-r border-gray-200 p-4">
+            <div class="border-r border-gray-200 p-4 pb-0">
                 @yield('content')
             </div>
         </div>
-        <div class="col-span-4">
+        <div class="col-span-3">
             @include('partials.sidebar-right')
         </div>
     </div>
