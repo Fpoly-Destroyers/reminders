@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
+    <link rel="shortcut icon" href="{{ asset('logo.png') }}" type="image/x-icon">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
     <link rel="stylesheet"
@@ -21,18 +22,8 @@
 </head>
 
 <body>
-    <div class="grid grid-cols-11 text-gray-600">
-        <div class="col-span-2">
-            @include('partials.sidebar-left')
-        </div>
-        <div class="col-span-6">
-            <div class="border-r border-gray-200 p-4">
-                @yield('content')
-            </div>
-        </div>
-        <div class="col-span-4">
-            @include('partials.sidebar-right')
-        </div>
+    <div class="flex items-center justify-center h-screen text-gray-600">
+        @yield('content')
     </div>
 
     @livewireStyles
