@@ -7,10 +7,13 @@
                 Apply
             </button>
         </div>
-
         <div>
             <div class="mb-4">
                 <input placeholder="Title" type="text" id="" name="" value=""
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+            </div>
+            <div class="mb-4">
+                <input placeholder="Password" type="text" id="" name="" value=""
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
             </div>
             <div class="mb-4 flex flex-col">
@@ -18,7 +21,8 @@
                 <div class="rounded p-4 grid grid-cols-6 gap-y-4">
                     @foreach ($colors as $hex)
                         <div class="h-6 w-6 rounded hover:cursor-pointer" wire:click="setColor('{{ $hex }}')"
-                            style="background-color: {{ $hex }};"></div>
+                            style="background-color: {{ $hex }};">
+                        </div>
                     @endforeach
                 </div>
             </div>
