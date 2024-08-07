@@ -24,3 +24,8 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('pages.register');
 })->name('register');
+
+
+Route::get('/date/{year}/{month}/{day}', function () {
+    return view('pages.home');
+})->name('pickDate');
