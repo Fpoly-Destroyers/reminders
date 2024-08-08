@@ -61,7 +61,7 @@
                                                 class="@if ($dayNumber == $currentDay && $currentMonth == $changeMonth && $currentYear == $changeYear) text-white @else text-gray-500 dark:text-gray-100 @endif font-medium">
                                                 {{ $dayNumber }}
                                             </p>
-                                            <span class="text-red-500 dark:text-red-100">•</span>
+                                            <span class="ps-0.5 text-red-500 dark:text-red-100">•</span>
                                         </div>
                                     </a>
                                 </td>

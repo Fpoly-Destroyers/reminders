@@ -31,17 +31,19 @@
 </head>
 
 <body>
-    <div class="grid grid-cols-11 text-gray-600">
-        <div class="col-span-2">
+    <div class="flex text-gray-600">
+        <div class="min-w-[300px]">
             @include('partials.sidebar-left')
         </div>
-        <div class="col-span-6">
-            <div class="border-r border-gray-200 px-4">
-                @yield('content')
+        <div class="grid grid-cols-9">
+            <div class="col-span-6">
+                <div class="border-r border-gray-200 px-4">
+                    @yield('content')
+                </div>
             </div>
-        </div>
-        <div class="col-span-3">
-            @include('partials.sidebar-right')
+            <div class="col-span-3">
+                @include('partials.sidebar-right')
+            </div>
         </div>
     </div>
 
