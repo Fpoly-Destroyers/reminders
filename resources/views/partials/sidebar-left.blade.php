@@ -9,7 +9,7 @@
     <div class="mb-4">
         <div class="flex items-center justify-between mb-2">
             <p class="text-xs font-medium">My List</p>
-            <button>
+            <button class="text-blue-700">
                 <span class="material-symbols-outlined">
                     add_box
                 </span>

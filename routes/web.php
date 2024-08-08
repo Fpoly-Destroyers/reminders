@@ -25,7 +25,17 @@ Route::get('/register', function () {
     return view('pages.register');
 })->name('register');
 
+Route::get('/logout', function () {
+});
 
 Route::get('/date/{year}/{month}/{day}', function () {
     return view('pages.home');
 })->name('pickDate');
+
+Route::get('/setting', function () {
+    return view('pages.setting');
+})->name('setting');
+
+Route::get('/profile', function () {
+    return view('pages.setting');
+})->name('profile');

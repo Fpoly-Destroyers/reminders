@@ -44,6 +44,9 @@
             <div class="col-span-3">
                 @include('partials.sidebar-right')
             </div>
+            <div class="col-span-9 fixed bottom-0 right-0 left-[300px] border-t border-gray-200 bg-white py-2 px-4">
+                @include('partials.footer')
+            </div>
         </div>
     </div>
 
