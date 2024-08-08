@@ -5,21 +5,24 @@
                 class="focus:outline-none dark:text-gray-100 text-gray-800 text-sm font-semibold">{{ $monthName . ' ' . $changeYear }}
             </span>
             @if ($currentMonth != $changeMonth || $currentYear != $changeYear)
-                <span class="material-symbols-outlined hover:cursor-pointer" wire:click="goToToday">
-                    reply
-                </span>
+                <button aria-label="calendar goToToday" wire:click="goToToday"
+                    class="flex items-center hover:text-gray-400 text-gray-800 dark:text-gray-100">
+                    <span class="material-symbols-outlined hover:cursor-pointer" wire:click="goToToday">
+                        reply
+                    </span>
+                </button>
             @endif
         </div>
 
         <div class="w-1/5 flex justify-between">
             <button aria-label="calendar backward" wire:click="previous"
-                class="flex items-center focus:text-gray-400 hover:text-gray-400 text-gray-800 dark:text-gray-100">
+                class="flex items-center hover:text-gray-400 text-gray-800 dark:text-gray-100">
                 <span class="material-symbols-outlined">
                     chevron_left
                 </span>
             </button>
             <button aria-label="calendar forward" wire:click="next"
-                class="flex items-center focus:text-gray-400 hover:text-gray-400 text-gray-800 dark:text-gray-100">
+                class="flex items-center hover:text-gray-400 text-gray-800 dark:text-gray-100">
                 <span class="material-symbols-outlined">
                     chevron_right
                 </span>
