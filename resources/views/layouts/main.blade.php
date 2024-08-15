@@ -46,7 +46,7 @@
                     @include('partials.sidebar-right')
                 </div>
             </div>
-            <div class=" fixed bottom-0 right-0 left-[300px] border-t border-gray-200 bg-white py-2 px-4">
+            <div class="fixed bottom-0 right-0 left-[300px] border-t border-gray-200 bg-white py-2 px-4">
                 @include('partials.footer')
             </div>
         </div>
