@@ -8,8 +8,7 @@
     <link rel="shortcut icon" href="{{ asset('logo.png') }}" type="image/x-icon">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <style>
         .material-symbols-outlined {
             font-variation-settings:
@@ -22,9 +21,9 @@
 </head>
 
 <body>
-    <div class="flex items-center justify-center h-screen text-gray-600">
+    <main>
         @yield('content')
-    </div>
+    </main>
 
     @livewireStyles
 </body>
