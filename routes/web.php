@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SettingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('pages.app');
-});
+})->name('app');
 
 Route::get('/login', function () {
     return view('pages.login');
@@ -32,10 +33,8 @@ Route::get('/date/{year}/{month}/{day}', function () {
     return view('pages.home');
 })->name('pickDate');
 
-Route::get('/setting', function () {
-    return view('pages.setting');
-})->name('setting');
+Route::get('/settings', function () {
+    return view('pages.settings');
+})->name('settings');
 
-Route::get('/profile', function () {
-    return view('pages.setting');
-})->name('profile');
+Route::get('/profile', [SettingController::class, 'index'])->name('profile');
