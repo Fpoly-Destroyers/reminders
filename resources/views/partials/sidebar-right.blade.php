@@ -1,4 +1,6 @@
-<div class="h-screen p-4">
+<div class="h-screen p-4 flex justify-between items-start">
     {{-- Render component tuy theo route --}}
-    @livewire('add-task')
+    <div class="w-full">
+        @livewire('add-list')
+    </div>
 </div>

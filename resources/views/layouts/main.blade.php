@@ -7,8 +7,7 @@
     <title>@yield('title')</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <style>
         .material-symbols-outlined {
             font-variation-settings:
@@ -17,6 +16,7 @@
                 'GRAD' -25,
                 'opsz' 24
         }
+
         .no-scrollbar::-webkit-scrollbar {
             display: none;
         }
@@ -35,16 +35,18 @@
         <div class="min-w-[300px]">
             @include('partials.sidebar-left')
         </div>
-        <div class="grid grid-cols-9">
-            <div class="col-span-6">
-                <div class="border-r border-gray-200 px-4">
-                    @yield('content')
+        <div class="flex-1">
+            <div class="flex">
+                <div class="w-2/3">
+                    <div class="border-r border-gray-200 px-4">
+                        @yield('content')
+                    </div>
+                </div>
+                <div class="w-1/3">
+                    @include('partials.sidebar-right')
                 </div>
             </div>
-            <div class="col-span-3">
-                @include('partials.sidebar-right')
-            </div>
-            <div class="col-span-9 fixed bottom-0 right-0 left-[300px] border-t border-gray-200 bg-white py-2 px-4">
+            <div class=" fixed bottom-0 right-0 left-[300px] border-t border-gray-200 bg-white py-2 px-4">
                 @include('partials.footer')
             </div>
         </div>
