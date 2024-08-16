@@ -10,4 +10,8 @@ class SettingController extends Controller
     {
         return view('pages.setting');
     }
+
+    public function postSettings() {
+        
+    }
 }

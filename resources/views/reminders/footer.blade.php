@@ -1,7 +1,7 @@
 <div class="flex items-center justify-between gap-4">
     <div class="flex items-center gap-4">
         <img class="w-8 h-8 object-cover" src="{{ asset('logo.ico') }}" alt="">
-        <p class="font-semibold">Reminders</p>
+        <p class="font-semibold">Reminders</p>  
     </div>
     <div class="flex items-center gap-4">
         <div class="inline-flex rounded-md shadow-sm">
@@ -20,10 +20,10 @@
         </div>
 
         <div id="dropdownTop"
-            class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+            class="z-10 hidden bg-white divide-y divide-gray-100 rounded shadow w-44 dark:bg-gray-700">
             <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownTopButton">
                 <li>
-                    <a href="{{ route('profile') }}"
+                    <a href=""
                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profile</a>
                 </li>
                 <li>

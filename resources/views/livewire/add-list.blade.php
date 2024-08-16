@@ -35,8 +35,6 @@
                             </div>
                         </label>
                     @endforeach
-                    <!-- Custom Color Input --> 
-                    
                 </div>
             </div>
             <div class="flex items-center mb-4">

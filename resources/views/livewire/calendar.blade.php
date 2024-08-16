@@ -56,7 +56,7 @@
                             @endphp
                             @if ($dayNumber > 0 && $dayNumber <= $daysInMonth)
                                 <td>
-                                    <a href="{{ route('pickDate', [$changeYear, $changeMonth, $dayNumber]) }}"
+                                    <a href="{{ route('reminders.date', [$changeYear, $changeMonth, $dayNumber]) }}"
                                         class="flex justify-center">
                                         <div
                                             class="mb-0.5 py-2 cursor-pointer hover:bg-gray-200 flex justify-center items-center w-full rounded-lg cursor-pointer @if ($dayNumber == $currentDay && $currentMonth == $changeMonth && $currentYear == $changeYear) focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:bg-indigo-500 hover:bg-indigo-500 w-7 h-7 flex items-center justify-center bg-indigo-700 rounded-lg @endif">

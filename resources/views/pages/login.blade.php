@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="flex items-center justify-center h-screen text-gray-600 bg-gray-50">
-    <div class="py-16 px-48 bg-white shadow rounded">
+    <div class="py-16 px-48 bg-white shadow rounded min-h-[600px] flex flex-col justify-center">
         <p class="text-sm mb-4 font-medium">Welcome to Reminders App</p>
         <form action="#" method="post">
             @csrf
