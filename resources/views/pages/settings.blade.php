@@ -1,13 +1,13 @@
 @extends('layouts.share')
 
-@section('title', 'Register')
+@section('title', 'Settings')
 
 @section('content')
 <div class="bg-gray-50 py-24 px-64 h-screen">
     <div class="rounded shadow bg-white p-4 text-gray-600 min-h-[600px]">
         <form action="" method="post">
             <div class="flex items-center justify-between mb-4">
-                <a href="{{ route('app') }}" class="text-sm flex items-center">
+                <a href="{{ url()->previous() }}" class="text-sm flex items-center">
                     <span class="material-symbols-outlined">
                         chevron_backward
                     </span>

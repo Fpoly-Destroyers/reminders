@@ -2,6 +2,10 @@
 
 @section('title', 'Reminders')
 
+@section('favicon')
+    <link rel="shortcut icon" href="{{ asset('reminders.ico') }}" type="image/x-icon">
+@endsection
+
 @section('styles')
     <style>
         .material-symbols-outlined {
@@ -26,21 +30,21 @@
 @section('content')
     <div class="flex text-gray-600">
         <div class="min-w-[300px]">
-            @include('reminders.sidebar-left')
+            @include('pages.reminders.sidebar-left')
         </div>
         <div class="flex-1">
             <div class="flex">
                 <div class="w-2/3">
                     <div class="border-r border-gray-200 px-4">
-                        @include('reminders.main')
+                        @include('pages.reminders.main')
                     </div>
                 </div>
                 <div class="w-1/3">
-                    @include('reminders.sidebar-right')
+                    @include('pages.reminders.sidebar-right')
                 </div>
             </div>
             <div class="fixed bottom-0 right-0 left-[300px] border-t border-gray-200 bg-white py-2 px-4">
-                @include('reminders.footer')
+                @include('pages.reminders.footer')
             </div>
         </div>
     </div>

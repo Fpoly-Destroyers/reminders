@@ -8,6 +8,9 @@
             @session('error')
                 <div class="rounded border-1 border-red-700 bg-red-50 px-4 py-2 text-xs mb-4 text-red-500">{{ session('error') }}</div>
             @endsession
+            @session('success')
+                <div class="rounded border-1 border-blue-700 bg-blue-50 px-4 py-2 text-xs mb-4 text-blue-500">{{ session('success') }}</div>
+            @endsession
             <p class="text-sm mb-4 font-medium">Welcome to Reminders App</p>
             <form action="{{ route('post.login') }}" method="post">
                 @csrf
@@ -34,6 +37,10 @@
                     </button>
                 </div>
             </form>
+            <div class="flex justify-end gap-1 mb-2">
+                <p class="text-xs">Forgot password</p>
+                <a href="{{ route('forgot-password') }}" class="text-blue-500 text-xs">Recover</a>
+            </div>
             <div class="flex justify-end gap-1">
                 <p class="text-xs">Create a new account</p>
                 <a href="{{ route('register') }}" class="text-blue-500 text-xs">Register</a>
