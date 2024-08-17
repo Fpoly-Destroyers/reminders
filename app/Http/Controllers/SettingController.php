@@ -8,7 +8,7 @@ class SettingController extends Controller
 {
     public function index()
     {
-        return view('pages.setting');
+        return view('pages.settings');
     }
 
     public function postSettings() {
