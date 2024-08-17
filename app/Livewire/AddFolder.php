@@ -4,7 +4,7 @@ namespace App\Livewire;
 
 use Livewire\Component;
 
-class EditList extends Component
+class AddFolder extends Component
 {
     public $colors;
     public $color = '#4285F4';
@@ -42,18 +42,16 @@ class EditList extends Component
         ];
     }
 
-    public function setColor($hex)
-    {
+    public function setColor($hex) {
         $this->color = $hex;
     }
 
-    public function submit()
-    {
-        dd($this->color);
+    public function submit() {
+        dd($this->color);   
     }
-    
+
     public function render()
     {
-        return view('livewire.edit-list');
+        return view('livewire.add-folder', ['colors' => $this->colors]);
     }
 }

@@ -8,9 +8,10 @@ use Illuminate\Support\Facades\DB;
 use Faker\Factory as Faker;
 use Illuminate\Support\Str;
 
-class FlagSeeder extends Seeder
-{
 
+
+class FolderSeeder extends Seeder
+{
     /**
      * Run the database seeds.
      */
@@ -18,15 +19,25 @@ class FlagSeeder extends Seeder
     {
         $now = now();
         $faker = Faker::create();
-        for ($i=0; $i < 10; $i++) {
-            $title = $faker->unique()->word;
-            DB::table('flags')->insert([
+        $usedTitles = [];
+
+        for ($i = 0; $i < 10; $i++) {
+            do {
+                $title = $faker->unique()->word;
+            } while (in_array($title, $usedTitles));
+
+            $usedTitles[] = $title;
+
+            DB::table('folders')->insert([
                 'title' => $title,
                 'slug' => Str::slug($title),
-                'color' => $faker->hexColor(),
-                'user_id' => rand(1,4),
+                'is_archived' => $faker->boolean,
+                'color' => $faker->hexColor,
+                'is_pinned' => $faker->boolean,
+                'user_id' => rand(1, 4),
                 'created_at' => $now,
                 'updated_at' => $now,
+                'deleted_at' => $now,
             ]);
         }
     }

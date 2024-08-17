@@ -8,14 +8,14 @@
     </div>
     <div class="mb-4">
         <div class="flex items-center justify-between mb-2">
-            <p class="text-xs font-medium">My List</p>
+            <p class="text-xs font-medium">My Folder</p>
             <button class="text-blue-700">
                 <span class="material-symbols-outlined">
                     add_box
                 </span>
             </button>
         </div>
-        @livewire('task-list')
+        @livewire('folder')
     </div>
     <div class="mb-4">
         <p class="text-xs font-medium mb-2">Calendar</p>

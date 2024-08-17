@@ -4,10 +4,10 @@ namespace App\Livewire;
 
 use Livewire\Component;
 
-class TaskList extends Component
+class AuthFolder extends Component
 {
     public function render()
     {
-        return view('livewire.task-list');
+        return view('livewire.auth-folder');
     }
 }

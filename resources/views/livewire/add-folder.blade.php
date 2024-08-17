@@ -2,7 +2,7 @@
     <form method="post" wire:submit="submit">
         @csrf
         <div class="mb-8 flex items-center justify-between">
-            <p class="text-xl font-semibold text-blue-700">List</p>
+            <p class="text-xl font-semibold text-blue-700">Add Folder</p>
             <button type="submit"
                 class="text-xs px-2 py-1 text-white bg-blue-700 rounded border border-blue-700 hover:bg-blue-800 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 Apply
@@ -35,8 +35,6 @@
                             </div>
                         </label>
                     @endforeach
-                    <!-- Custom Color Input --> 
-                    
                 </div>
             </div>
             <div class="flex items-center mb-4">

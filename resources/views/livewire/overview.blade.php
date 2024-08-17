@@ -1,5 +1,5 @@
 <div class="grid grid-cols-2 gap-2">
-    <div class="bg-gray-200 rounded text-xs p-2">
+    <a href="{{ route('reminders.folder', 'today') }}" class="folder bg-gray-200 rounded text-xs p-2">
         <div class="flex items-start justify-between">
             <div>
                 <div class="mb-2">
@@ -9,11 +9,11 @@
                 </div>
                 <p>Today</p>
             </div>
-            <p class="font-bold text-lg">12</p>
+            <p class="font-bold text-lg">{{ $today }}</p>
         </div>
-    </div>
+    </a>
 
-    <div class="bg-gray-200 rounded text-xs p-2">
+    <a href="{{ route('reminders.folder', 'archived') }}" class="folder bg-gray-200 rounded text-xs p-2">
         <div class="flex items-start justify-between">
             <div>
                 <div class="mb-2">
@@ -23,11 +23,11 @@
                 </div>
                 <p>Archived</p>
             </div>
-            <p class="font-bold text-lg">12</p>
+            <p class="font-bold text-lg">{{ $archived }}</p>
         </div>
-    </div>
+    </a>
 
-    <div class="bg-gray-200 rounded text-xs p-2">
+    <a href="{{ route('reminders.folder', 'all') }}" class="folder bg-gray-200 rounded text-xs p-2">
         <div class="flex items-start justify-between">
             <div>
                 <div class="mb-2">
@@ -37,11 +37,11 @@
                 </div>
                 <p>All</p>
             </div>
-            <p class="font-bold text-lg">12</p>
+            <p class="font-bold text-lg">{{ $all }}</p>
         </div>
-    </div>
+    </a>
 
-    <div class="bg-gray-200 rounded text-xs p-2">
+    <a href="{{ route('reminders.folder', 'trashed') }}" class="folder bg-gray-200 rounded text-xs p-2">
         <div class="flex items-start justify-between">
             <div>
                 <div class="mb-2">
@@ -51,7 +51,26 @@
                 </div>
                 <p>Trashed</p>
             </div>
-            <p class="font-bold text-lg">12</p>
+            <p class="font-bold text-lg">{{ $trashed }}</p>
         </div>
-    </div>
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPath = window.location.pathname;
+
+            const links = document.querySelectorAll('.folder');
+
+            links.forEach(link => {
+                const linkUrl = new URL(link.getAttribute('href'), window.location.origin);
+                const linkPath = linkUrl.pathname;
+
+                if (linkPath === currentPath) {
+                    link.classList.add('bg-blue-600', 'text-white');
+                    link.classList.remove('bg-gray-200');
+                }
+            });
+        });
+    </script>
+
 </div>

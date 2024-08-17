@@ -30,13 +30,15 @@ Route::group([
     'middleware' => 'auth',
 ], function () {
     Route::get('/', function () {
-        return redirect()->route('reminders.index');
+        return redirect()->route('reminders.folder', 'today');
     });
 
     Route::prefix('reminders')->group(function () {
-        Route::get('/', [ReminderController::class, 'index'])->name('reminders.index');
+        Route::get('/', function () {
+            return redirect()->route('reminders.folder', 'today');
+        });
 
-        Route::get('/list/{slug}', [ReminderController::class, 'list'])->name('reminders.list');
+        Route::get('/folder/{slug}', [ReminderController::class, 'folder'])->name('reminders.folder');
 
         Route::get('/date/{year}/{month}/{day}', [ReminderController::class, 'date'])->name('reminders.date');
     });
@@ -49,5 +51,5 @@ Route::group([
     Route::post('/settings', [SettingController::class, 'postSettings'])->name('post.settings');
 
     Route::get('/change-password', [AuthController::class, 'changePassword'])->name('change-password');
-    Route::post('/change-password', [AuthController::class,'postChangePassword'])->name('post.change-password');
+    Route::post('/change-password', [AuthController::class, 'postChangePassword'])->name('post.change-password');
 });
