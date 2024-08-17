@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ChangePasswordRequest;
+use App\Http\Requests\RegisterRequest;
+use App\Models\User;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -29,9 +31,13 @@ class AuthController extends Controller
         return view('pages.register');
     }
 
-    public function postRegister()
-    {
-    }
+    public function postRegister(RegisterRequest $request) {
+        $data = $request->all();
+        $data['password'] = bcrypt($data['password']);
+        if (User::create($data)) {
+            return redirect()->route('login')->with('success', 'Account created successfully.');
+        }
+        return back()->with('error', 'Failed to create account.');
 
     public function logout()
     {
