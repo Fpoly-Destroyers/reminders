@@ -31,14 +31,15 @@ class AuthController extends Controller
         return view('pages.register');
     }
 
-    public function postRegister(RegisterRequest $request) {
+    public function postRegister(RegisterRequest $request)
+    {
         $data = $request->all();
         $data['password'] = bcrypt($data['password']);
         if (User::create($data)) {
             return redirect()->route('login')->with('success', 'Account created successfully.');
         }
         return back()->with('error', 'Failed to create account.');
-
+    }
     public function logout()
     {
         Auth::logout();
