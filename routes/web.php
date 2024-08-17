@@ -25,7 +25,7 @@ Route::prefix('auth')->group(function () {
 });
 
 Route::group([
-    // 'middleware' => 'auth',
+    'middleware' => 'auth',
 ], function () {
     Route::get('/', function () {
         return redirect()->route('reminders.index');
