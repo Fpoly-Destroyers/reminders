@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('location')->nullable();
             $table->text('url')->nullable();
             $table->string('image')->nullable();
-            $table->foreignId('list_id')->constrained();
+            $table->foreignId('folder_id')->constrained();
             $table->tinyInteger('status')->default(0)->comment('0: not done, 1: done');
             $table->timestamps();
             $table->softDeletes();

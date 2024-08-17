@@ -1,6 +1,6 @@
 <div class="text-sm flex items-center justify-center h-screen">
     <div class="text-center">
-        <p class="font-semibold mb-4">List is locked</p>
+        <p class="font-semibold mb-4">Folder is locked</p>
         <p class="text-blue-600 hover:cursor-pointer">Unlock</p>
         <div class="flex items-center justify-center gap-2 hidden">
             <input placeholder="Password" type="text" id="" name="" value="" class="bg-gray-100 border border-gray-300 text-gray-900 text-xs rounded focus:ring-blue-500 focus:border-blue-500 block w-64 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />

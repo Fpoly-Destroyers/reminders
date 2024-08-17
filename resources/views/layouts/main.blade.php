@@ -9,6 +9,15 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        <style>.material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+    </style>
     @yield('styles')
     @livewireStyles
 
@@ -27,9 +36,6 @@
     @session('error')
         @livewire('toast', ['type' => 'error', 'title' => session('error'), 'message' => session('message')])
     @endsession
-
-    @livewire('toast', ['type' => 'success', 'title' => 'Login Successfully!'])
-
 
     @yield('content')
 

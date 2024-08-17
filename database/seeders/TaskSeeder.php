@@ -30,7 +30,7 @@ class TaskSeeder extends Seeder
                 'on_time' => $faker->time(),
                 'location' => 'Hà Nội',
                 'url' => $faker->url(),
-                'list_id' => rand(1,10),
+                'folder_id' => rand(1,10),
                 'status' => rand(0,1),
                 'created_at' => $now,
                 'updated_at' => $now,

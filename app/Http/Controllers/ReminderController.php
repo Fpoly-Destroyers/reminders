@@ -10,7 +10,7 @@ class ReminderController extends Controller
         return view('pages.reminders.index');
     }
 
-    public function list($slug) {
+    public function folder($slug) {
         return view('pages.reminders.index');
     }
 
