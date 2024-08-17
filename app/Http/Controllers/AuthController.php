@@ -23,7 +23,11 @@ class AuthController extends Controller
         if (!Auth::attempt($credentials)) {
             return redirect()->back()->with('error', 'Email or password is incorrect');
         }
-        return redirect()->route('reminders.index')->with('success', 'You are logged in');
+
+        return redirect()->route('reminders.index')->with([
+            'success' => 'Success',
+            'message' => 'Login successfully',
+        ]);
     }
 
     public function register()

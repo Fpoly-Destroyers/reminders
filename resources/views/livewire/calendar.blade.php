@@ -59,7 +59,7 @@
                                     <a href="{{ route('reminders.date', [$changeYear, $changeMonth, $dayNumber]) }}"
                                         class="flex justify-center">
                                         <div
-                                            class="mb-0.5 py-2 cursor-pointer hover:bg-gray-200 flex justify-center items-center w-full rounded-lg cursor-pointer @if ($dayNumber == $currentDay && $currentMonth == $changeMonth && $currentYear == $changeYear) focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:bg-indigo-500 hover:bg-indigo-500 w-7 h-7 flex items-center justify-center bg-indigo-700 rounded-lg @endif">
+                                            class="mb-0.5 py-2 cursor-pointer hover:bg-gray-200 flex justify-center items-center w-full rounded-lg cursor-pointer @if ($dayNumber == $currentDay && $currentMonth == $changeMonth && $currentYear == $changeYear) focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700 focus:bg-blue-500 hover:bg-blue-500 w-7 h-7 flex items-center justify-center bg-blue-700 rounded-lg @endif">
                                             <p
                                                 class="@if ($dayNumber == $currentDay && $currentMonth == $changeMonth && $currentYear == $changeYear) text-white @else text-gray-500 dark:text-gray-100 @endif font-medium">
                                                 {{ $dayNumber }}
