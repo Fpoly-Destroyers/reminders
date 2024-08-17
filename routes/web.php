@@ -36,7 +36,7 @@ Route::group([
     Route::prefix('reminders')->group(function () {
         Route::get('/', function () {
             return redirect()->route('reminders.folder', 'today');
-        });
+        })->name('reminders.index');
 
         Route::get('/folder/{slug}', [ReminderController::class, 'folder'])->name('reminders.folder');
 
