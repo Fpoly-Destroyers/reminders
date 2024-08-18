@@ -24,6 +24,7 @@ Route::prefix('auth')->group(function () {
     Route::post('/register', [AuthController::class, 'postRegister'])->name('post.register');
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/forgot-password', [AuthController::class, 'forgotPassword'])->name('forgot-password');
+    Route::post('/forgot-password', [AuthController::class, 'postForgotPassword'])->name('post.forgot-password');
 });
 
 Route::group([
@@ -36,7 +37,7 @@ Route::group([
     Route::prefix('reminders')->group(function () {
         Route::get('/', function () {
             return redirect()->route('reminders.folder', 'today');
-        });
+        })->name('reminders.index');
 
         Route::get('/folder/{slug}', [ReminderController::class, 'folder'])->name('reminders.folder');
 
