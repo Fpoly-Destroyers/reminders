@@ -15,6 +15,6 @@ class ReminderController extends Controller
     }
 
     public function date($year, $month, $day) {
-        return view('pages.reminders.index');
+        return view('pages.reminders.index', compact('year', 'month', 'day'));
     }
 }
