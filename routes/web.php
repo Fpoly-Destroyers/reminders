@@ -24,6 +24,7 @@ Route::prefix('auth')->group(function () {
     Route::post('/register', [AuthController::class, 'postRegister'])->name('post.register');
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/forgot-password', [AuthController::class, 'forgotPassword'])->name('forgot-password');
+    Route::post('/forgot-password', [AuthController::class, 'postForgotPassword'])->name('post.forgot-password');
 });
 
 Route::group([

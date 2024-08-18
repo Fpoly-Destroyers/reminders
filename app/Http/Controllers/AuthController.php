@@ -6,9 +6,11 @@ use App\Http\Requests\ChangePasswordRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Models\User;
 use App\Http\Requests\LoginRequest;
+use App\Mail\RecoveryPassword;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
@@ -20,7 +22,10 @@ class AuthController extends Controller
     public function postLogin(LoginRequest $request)
     {
         $credentials = $request->only('email', 'password');
-        if (!Auth::attempt($credentials)) {
+
+        $remember = $request->has('remember');
+
+        if (!Auth::attempt($credentials, $remember)) {
             return redirect()->back()->with('error', 'Email or password is incorrect');
         }
 
@@ -56,8 +61,29 @@ class AuthController extends Controller
         return view('pages.forgot-password');
     }
 
-    public function postforgotPassword()
+    public function postforgotPassword(Request $request)
     {
+        $email = $request->email;
+        $user = User::where('email', $email)->first();
+        $subject = 'Forgot Password';
+
+        $newPassword = generatePassword();
+        $data = [
+            'user' => $user,
+            'newPassword' => $newPassword,
+        ];
+
+        $user->password = Hash::make($newPassword);
+
+        if ($user->save()) {
+            if (!Mail::mailer()->to($user->email)->send(new RecoveryPassword($subject, $data))) {
+                return redirect()->back()->with('error', 'Send mail failed!');
+            }
+
+            return redirect()->back()->with('success', 'New password has been sent to your email!');
+        } else {
+            return redirect()->back()->with('error', 'Have an error!');
+        }
     }
 
     public function changePassword()
