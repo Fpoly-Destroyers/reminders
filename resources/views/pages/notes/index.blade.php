@@ -11,7 +11,7 @@
 @endsection
 
 @section('content')
-    123
+    This is notes app
 @endsection
 
 @section('scripts')

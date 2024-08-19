@@ -9,12 +9,12 @@
     @foreach ($tasks as $task)
         @if ($task->status == 0)
             <div
-                class="flex items-center justify-between rounded border-b border-gray-200 px-2 py-4 hover:bg-gray-100 hover:cursor-pointer">
+                class="flex items-center justify-between border-b border-gray-200 px-2 py-4 hover:bg-gray-100 hover:cursor-pointer">
                 <div class="flex gap-4 items-center">
                     <div>
                         <input id="checkbox-{{ $task->id }}" type="checkbox"
                             @if ($task->status == 1) checked @endif
-                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-0 dark:bg-gray-700 dark:border-gray-600">
+                            class="w-4 h-4 text-green-400 bg-gray-100 border-gray-300 rounded focus:ring-green-400 dark:focus:ring-green-400 dark:ring-offset-gray-800 focus:ring-0 dark:bg-gray-700 dark:border-gray-600">
                     </div>
                     <div>
                         <p class="text-sm font-semibold mb-1">{{ ucfirst($task->title) }}</p>
