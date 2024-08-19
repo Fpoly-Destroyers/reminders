@@ -19,6 +19,12 @@
             <div class="mb-4">
                 <textarea placeholder="Content" id="" name="" rows="4" class="block p-1.5 w-full text-xs text-gray-600 bg-gray-50 rounded border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></textarea>
             </div>
+            <div class="mb-4">
+                <label for="folders" class="text-xs mb-1">Folder</label>
+                <select id="folders" name="folders" class="bg-gray-50 border border-gray-300 text-xs rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option selected>Default</option>
+                </select>
+            </div>
             <div class="mb-4 flex items-center gap-4">
                 <div class="w-full">
                     <label for="on_date" class="text-xs mb-1">On Date</label>
