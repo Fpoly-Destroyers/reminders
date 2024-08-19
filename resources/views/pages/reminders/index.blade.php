@@ -10,7 +10,7 @@
     <style>
         .material-symbols-outlined {
             font-variation-settings:
-                'FILL' 0,
+                'FILL' 1,
                 'wght' 200,
                 'GRAD' -25,
                 'opsz' 24

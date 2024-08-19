@@ -1,4 +1,4 @@
-<div class="p-4 border-r border-gray-200 h-screen bg-gray-100 overflow-y-auto no-scrollbar">
+<div class="p-4 border-r border-gray-200 h-screen bg-gray-100 overflow-y-auto no-scrollbar select-none">
     <div class="mb-4">
         @livewire('search')
     </div>
@@ -19,6 +19,6 @@
     </div>
     <div class="mb-4">
         <p class="text-xs font-medium mb-2">Calendar</p>
-        @livewire('calendar')
+        <livewire:calendar :year="$year ?? null" :month="$month ?? null" :day="$day ?? null" />
     </div>
 </div>

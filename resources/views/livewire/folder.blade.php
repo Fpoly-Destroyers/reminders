@@ -1,7 +1,7 @@
 <div class="h-60 overflow-y-auto space-y-2 no-scrollbar">
     @foreach ($folders as $folder)
         <a href="{{ route('reminders.folder', $folder->slug) }}"
-            class="folder px-4 py-1 rounded flex items-center justify-between bg-gray-200 text-black">
+            class="folder px-4 py-1 rounded flex items-center justify-between bg-gray-200">
             <div class="flex items-center gap-2">
                 @if (empty($folder->password))
                     <span class="material-symbols-outlined" style="color: {{ $folder->color }}">
@@ -35,7 +35,7 @@
                 const linkUrl = new URL(link.getAttribute('href'), window.location.origin);
                 const linkPath = linkUrl.pathname;
                 const pin = link.querySelector('.pin');
-                
+
                 if (linkPath === currentPath) {
                     link.classList.add('bg-blue-600', 'text-white');
                     link.classList.remove('bg-gray-200');

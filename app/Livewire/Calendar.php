@@ -5,7 +5,7 @@ namespace App\Livewire;
 use Carbon\Carbon;
 use Livewire\Component;
 
-class Calendar extends Component 
+class Calendar extends Component
 {
     public $weekDays = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
 
@@ -14,17 +14,26 @@ class Calendar extends Component
     public $currentDay;
     public $changeMonth;
     public $changeYear;
-    public $monthName;
+    public $monthName; // Month name
     public $daysInMonth;
     public $firstDayOfMonth;
     public $date;
+    // Selected date properties
+    public $selectedDate = null;
+    public $selectedDay = null;
+    public $selectedMonth = null;
+    public $selectedYear = null;
 
-    public function mount()
+    public function mount($year = null, $month = null, $day = null)
     {
-        $this->setDateProperties(Carbon::now());
+        if ($year && $month && $day) {
+            $this->selectedDate = Carbon::create($year, $month, $day);
+        }
+
+        $this->initializeDateProperties(Carbon::now(), $this->selectedDate);
     }
 
-    public function setDateProperties($date)
+    public function initializeDateProperties($date, $selectedDate)
     {
         $this->date = $date;
 
@@ -32,35 +41,43 @@ class Calendar extends Component
         $this->currentMonth = $this->date->month;
         $this->currentYear = $this->date->year;
 
-        $this->changeMonth = $this->currentMonth;
-        $this->changeYear = $this->currentYear;
-
+        if ($selectedDate) {
+            $this->changeMonth = $selectedDate->month;
+            $this->changeYear = $selectedDate->year;
+            $this->selectedDay = $selectedDate->day;
+            $this->selectedMonth = $selectedDate->month;
+            $this->selectedYear = $selectedDate->year;
+        } else {
+            $this->changeMonth = $this->currentMonth;
+            $this->changeYear = $this->currentYear;
+        }
         $this->updateCalendar();
     }
 
     public function previous()
     {
-        $this->changeMonth = $this->changeMonth - 1;
+        $this->changeMonth--;
         if ($this->changeMonth < 1) {
             $this->changeMonth = 12;
-            $this->changeYear = $this->changeYear - 1;
+            $this->changeYear--;
         }
         $this->updateCalendar();
     }
 
     public function next()
     {
-        $this->changeMonth = $this->changeMonth + 1;
+        $this->changeMonth++;
         if ($this->changeMonth > 12) {
             $this->changeMonth = 1;
-            $this->changeYear = $this->changeYear + 1;
+            $this->changeYear++;
         }
         $this->updateCalendar();
     }
 
     public function goToToday()
     {
-        $this->setDateProperties(Carbon::now());
+        $this->selectedDate = null;
+        $this->initializeDateProperties(Carbon::now(), $this->selectedDate);
     }
 
     public function updateCalendar()
