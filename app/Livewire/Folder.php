@@ -8,12 +8,21 @@ use Livewire\Component;
 class Folder extends Component
 {
     public $folders;
- 
+
+    protected $listeners = ['folderAdded' => 'loadFolders'];
+
+    public function __construct()
+    {
+        $this->loadFolders();
+    }
+
+    public function loadFolders()
+    {
+        $this->folders = Auth::user()->folders()->where('is_archived', 0)->orderBy('is_pinned', 'desc')->get();
+    } 
+
     public function render()
-    {  
-        $user = Auth::user();
-        // No archived folders and sort by is_pinned
-        $this->folders = $user->folders()->where('is_archived', 0)->orderBy('is_pinned', 'desc')->get();
+    {
         return view('livewire.folder', [
             'folders' => $this->folders,
         ]);

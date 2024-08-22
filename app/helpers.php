@@ -5,7 +5,7 @@ if (!function_exists('createSlug')) {
     {
         $slug = preg_replace('/[^A-Za-z0-9-]+/', '-', $string);
         $slug = preg_replace('/-+/', '-', $slug);
-        return strtolower(generatePassword() . $slug);
+        return strtolower(generatePassword() . "-" . $slug);
     }
 }
 
