@@ -2,17 +2,21 @@
 
 namespace App\Livewire;
 
+use App\Models\Folder;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 
 class AddFolder extends Component
 {
     public $colors;
     public $color = '#4285F4';
-    public $title;
-    public $customColor;
+    public $title; 
+    public $password;
+    // public $customColor;
     public $is_pinned = false;
 
-    public function __construct()
+    public function mount()
     {
         $this->colors = [
             '#AD1457',
@@ -42,12 +46,38 @@ class AddFolder extends Component
         ];
     }
 
-    public function setColor($hex) {
+    protected $rules = [
+        'title' => 'required',
+    ];
+
+    protected $messages = [
+        'title.required' => 'The title field is required.',
+    ];
+
+    public function setColor($hex)
+    {
         $this->color = $hex;
     }
 
-    public function submit() {
-        dd($this->color);   
+    public function submit()
+    {
+        $this->validate();
+        $user = Auth::user();
+        $data = [
+            'title' => $this->title,
+            'slug' => createSlug($this->title),
+            'is_archived' => 0,
+            'password' => empty($this->password) ? null : $this->password,
+            'color' => $this->color,
+            'is_pinned' => $this->is_pinned,
+            'user_id' => $user->id,
+        ];
+
+        if (Folder::create($data)) {
+            session()->flash('message', 'Folder created successfully!');
+            $this->reset(['title', 'password', 'color', 'is_pinned']);
+            $this->dispatch('loadFolders');
+        }
     }
 
     public function render()

@@ -10,11 +10,14 @@
         </div>
         <div>
             <div class="mb-4">
-                <input placeholder="Title" type="text" id="" name="" value=""
+                <input placeholder="Title" type="text" id="title" name="title" wire:model='title'
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                @error('title')
+                    <p class="mt-2 text-xs text-red-600 dark:text-red-500">{{ $message }}</p>
+                @enderror
             </div>
             <div class="mb-4">
-                <input placeholder="Password" type="text" id="" name="" value=""
+                <input placeholder="Password" type="password" id="password" name="password" wire:model='password'
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
             </div>
             <div class="mb-4 flex flex-col">
@@ -38,7 +41,7 @@
                 </div>
             </div>
             <div class="flex items-center mb-4">
-                <input id="is_pinned" type="checkbox" value="" name="is_pinned"
+                <input id="is_pinned" type="checkbox" name="is_pinned" wire:model="is_pinned"
                     class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                 <label for="is_pinned" class="ms-2 text-xs dark:text-gray-300">Pinned</label>
             </div>

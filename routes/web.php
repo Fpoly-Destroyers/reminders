@@ -40,6 +40,7 @@ Route::group([
         })->name('reminders.index');
 
         Route::get('/folder/{slug}', [ReminderController::class, 'folder'])->name('reminders.folder');
+        Route::get('/folder/{slug}/edit', [ReminderController::class, 'edit'])->name('reminders.edit');
 
         Route::get('/date/{year}/{month}/{day}', [ReminderController::class, 'date'])->name('reminders.date');
     });

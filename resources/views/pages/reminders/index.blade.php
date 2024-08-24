@@ -29,7 +29,7 @@
 
 @section('content')
     <div class="flex text-gray-600">
-        <div class="min-w-[300px]">
+        <div class="w-[300px]">
             @include('pages.reminders.sidebar-left')
         </div>
         <div class="flex-1">
