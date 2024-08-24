@@ -11,10 +11,9 @@ class AddFolder extends Component
 {
     public $colors;
     public $color = '#4285F4';
-    public $title;
-    public $slug;
+    public $title; 
     public $password;
-    public $customColor;
+    // public $customColor;
     public $is_pinned = false;
 
     public function mount()
@@ -68,7 +67,7 @@ class AddFolder extends Component
             'title' => $this->title,
             'slug' => createSlug($this->title),
             'is_archived' => 0,
-            'password' => empty($this->password) ? null : Hash::make($this->password),
+            'password' => empty($this->password) ? null : $this->password,
             'color' => $this->color,
             'is_pinned' => $this->is_pinned,
             'user_id' => $user->id,
@@ -76,8 +75,8 @@ class AddFolder extends Component
 
         if (Folder::create($data)) {
             session()->flash('message', 'Folder created successfully!');
-            $this->reset(['title', 'slug', 'password', 'color', 'is_pinned', 'customColor']);
-            $this->dispatch('folderAdded');
+            $this->reset(['title', 'password', 'color', 'is_pinned']);
+            $this->dispatch('loadFolders');
         }
     }
 

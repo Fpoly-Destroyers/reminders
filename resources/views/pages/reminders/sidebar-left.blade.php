@@ -74,17 +74,23 @@
                 contextMenu.style.left = `${event.pageX}px`;
                 contextMenu.style.top = `${event.pageY}px`;
 
-                // Disable events
                 myFolders.classList.add('pointer-events-none');
 
                 // Get and Set data-id
-                contextMenu.dataset.id = container.dataset.id;
+                const slug = container.dataset.id;
+
+                const editFolder = contextMenu.querySelector('.edit-folder');
+                const pinFolder = contextMenu.querySelector('.pin-folder');
+                const archiveFolder = contextMenu.querySelector('.archive-folder');
+                editFolder.href = `/reminders/folder/${slug}/edit`;
+                pinFolder.setAttribute('wire:click', `pin('${slug}')`);
+                archiveFolder.setAttribute('wire:click', `archive('${slug}')`);
             });
         });
 
-        document.addEventListener('mousedown', () => {
+        document.addEventListener('click', () => {
             contextMenu.classList.add('hidden');
             myFolders.classList.remove('pointer-events-none');
-        });
+        }); 
     });
 </script>

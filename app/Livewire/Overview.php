@@ -12,14 +12,22 @@ class Overview extends Component
     public $all;
     public $trashed;
 
+    protected $listeners = ['loadOverviews' => 'loadOverviews'];
+
     public function __construct()
     {
-        $user = Auth::user();  
-        $this->today = $user->tasks()->whereDate('on_date', now()->format('Y-m-d'))->count();
-        $this->archived = $user->folders()->where('is_archived', 1)->count();
-        $this->all = $user->tasks()->count();
-        $this->trashed = $user->tasks()->onlyTrashed()->count();
+        $this->today = Auth::user()->tasks()->whereDate('on_date', now()->format('Y-m-d'))->count();
+        $this->archived = Auth::user()->folders()->where('is_archived', 1)->count();
+        $this->all = Auth::user()->tasks()->count();
+        $this->trashed = Auth::user()->tasks()->onlyTrashed()->count();
+    }
 
+    public function loadOverviews()
+    {
+        $this->today = Auth::user()->tasks()->whereDate('on_date', now()->format('Y-m-d'))->count();
+        $this->archived = Auth::user()->folders()->where('is_archived', 1)->count();
+        $this->all = Auth::user()->tasks()->count();
+        $this->trashed = Auth::user()->tasks()->onlyTrashed()->count();
     }
 
     public function render()
