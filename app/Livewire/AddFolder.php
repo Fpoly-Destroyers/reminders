@@ -11,7 +11,7 @@ class AddFolder extends Component
 {
     public $colors;
     public $color = '#4285F4';
-    public $title; 
+    public $title;
     public $password;
     // public $customColor;
     public $is_pinned = false;
@@ -74,7 +74,7 @@ class AddFolder extends Component
         ];
 
         if (Folder::create($data)) {
-            session()->flash('message', 'Folder created successfully!');
+            session()->flash('success', 'Folder created successfully!');
             $this->reset(['title', 'password', 'color', 'is_pinned']);
             $this->dispatch('loadFolders');
         }
