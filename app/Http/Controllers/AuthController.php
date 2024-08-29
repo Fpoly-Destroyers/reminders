@@ -29,10 +29,7 @@ class AuthController extends Controller
             return redirect()->back()->with('error', 'Email or password is incorrect');
         }
 
-        return redirect()->route('reminders.index')->with([
-            'success' => 'Success',
-            'message' => 'Login successfully',
-        ]);
+        return redirect()->route('reminders.index');
     }
 
     public function register()

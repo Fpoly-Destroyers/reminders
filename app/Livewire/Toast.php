@@ -3,38 +3,51 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use SebastianBergmann\CodeUnit\FunctionUnit;
 
 class Toast extends Component
 {
-    public $title;
-    public $message;
-    public $icon;
+    public $type, $title, $message;
+    public $icon, $textColor, $bgColor;
 
-    public $color = 'red';
-    public function mount($type, $title, $message = null)
+    protected $listeners = ['flashMessage'];
+
+    public function flashMessage($type, $title, $message)
     {
-        switch ($type) {
+        $this->type = $type;
+        $this->title = $title;
+        $this->message = $message;
+        [$this->textColor, $this->bgColor, $this->icon] = $this->getColorAndIcon();
+    } 
+
+    public function getColorAndIcon()
+    {
+        switch ($this->type) {
             case 'success':
-                $this->color = 'green';
-                $this->icon = 'check_circle';
+                $textColor = '#22C55E';
+                $bgColor = '#DCFCE7';
+                $icon = 'check_circle';
                 break;
             case 'error':
-                $this->color = 'red';
-                $this->icon = 'error';
+                $textColor = '#EF4444';
+                $bgColor = '#FDE2E2';
+                $icon = 'error';
                 break;
             case 'warning':
-                $this->color = 'yellow';
-                $this->icon = 'warning';
+                $textColor = '#EAB308';
+                $bgColor = '#FEF9C3';
+                $icon = 'warning';
                 break;
             case 'info':
-                $this->color = 'blue';
-                $this->icon = 'info';
+                $textColor = '#3B82F6';
+                $bgColor = '#DBEAFE';
+                $icon = 'info';
                 break;
         }
 
-        $this->title = $title;
-        $this->message = $message;
+        return [$textColor, $bgColor, $icon];
     }
+
     public function render()
     {
         return view('livewire.toast');

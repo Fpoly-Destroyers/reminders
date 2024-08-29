@@ -9,21 +9,21 @@ class ReminderController extends Controller
 {
     public function index()
     {
-        return view('pages.reminders.index');
+        return view('pages.reminder');
     }
 
     public function folder($slug)
     {
-        return view('pages.reminders.index', compact('slug'));
-    }
-
-    public function edit($slug)
-    {
-        return view('pages.reminders.index', compact('slug'));
-    }
+        return view('pages.reminder', compact('slug'));
+    } 
 
     public function date($year, $month, $day)
-    {
-        return view('pages.reminders.index', compact('year', 'month', 'day'));
+    {    
+        session()->put('selectedDate', [
+            'year' => $year,
+            'month' => $month,
+            'day' => $day
+        ]);
+        return view('pages.reminder');
     }
 }

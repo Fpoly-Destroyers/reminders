@@ -36,14 +36,10 @@ Route::group([
 
     Route::prefix('reminders')->group(function () {
         Route::get('/', function () {
-            return redirect()->route('reminders.folder', 'today')->with([
-                'success' => session('success') ?? null,
-                'message' => session('message') ?? null,
-            ]);
+            return redirect()->route('reminders.folder', 'today');
         })->name('reminders.index');
 
-        Route::get('/folder/{slug}', [ReminderController::class, 'folder'])->name('reminders.folder');
-        Route::get('/folder/{slug}/edit', [ReminderController::class, 'edit'])->name('reminders.edit');
+        Route::get('/folder/{slug}', [ReminderController::class, 'folder'])->name('reminders.folder'); 
 
         Route::get('/date/{year}/{month}/{day}', [ReminderController::class, 'date'])->name('reminders.date');
     });
