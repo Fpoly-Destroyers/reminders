@@ -40,7 +40,6 @@
                 const myFolders = document.querySelector('.sidebar-left');
                 const editFolder = contextMenu.querySelector('.edit-folder');
                 const pinFolder = contextMenu.querySelector('.pin-folder');
-                const archiveFolder = contextMenu.querySelector('.archive-folder');
 
                 const showContextMenu = (event, slug) => {
                     event.preventDefault();
@@ -49,10 +48,7 @@
                     contextMenu.style.top = `${event.pageY}px`;
                     myFolders.classList.add('pointer-events-none');
                     editFolder.setAttribute('wire:click', `editFolder('${slug}')`);
-                    pinFolder.setAttribute('wire:click', `pin('${slug}')`);
-                    archiveFolder.setAttribute('wire:click', `archive('${slug}')`);
-                    archiveFolder.setAttribute('wire:confirm.prompt',
-                        `Are you sure?\n\n Type "Delete" in the box below to confirm delete|Delete`);
+                    pinFolder.setAttribute('wire:click', `pin('${slug}')`); 
                 };
 
                 document.addEventListener('contextmenu', (event) => {

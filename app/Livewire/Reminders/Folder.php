@@ -26,7 +26,7 @@ class Folder extends Component
 
     public function loadFolders()
     {
-        $this->folders = Auth::user()->folders()->where('is_archived', 0)->orderBy('is_pinned', 'desc')->get();
+        $this->folders = Auth::user()->folders()->orderBy('is_pinned', 'desc')->get();
     }
 
     public function pin($slug)
@@ -35,20 +35,7 @@ class Folder extends Component
         $folder->is_pinned = !$folder->is_pinned;
         $folder->save();
         $this->loadFolders();
-    }
-
-    public function archive($slug)
-    {
-        $folder = Auth::user()->folders()->where('slug', $slug)->first();
-        $folder->is_archived = 1;
-        if ($folder->save()) {
-            $this->loadFolders();
-            $this->dispatch('flashMessage', 'success', 'Success', 'Folder archived successfully.');
-            $this->dispatch('loadOverviews');
-        } else {
-            $this->dispatch('flashMessage', 'error', 'Error', 'Failed to archive folder.');
-        }
-    }
+    } 
 
     public function editFolder($slug)
     {

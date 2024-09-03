@@ -66,15 +66,7 @@
                     </span>
                     Lock
                 </div>
-            </li>
-            <li>
-                <div class="archive-folder flex items-center my-1 mx-3 p-2 hover:bg-gray-200 rounded-lg">
-                    <span class="material-symbols-outlined me-3" style="font-size: 18px !important">
-                        archive
-                    </span>
-                    Archived
-                </div>
-            </li>
+            </li> 
         </ul>
     </div>
 </div>

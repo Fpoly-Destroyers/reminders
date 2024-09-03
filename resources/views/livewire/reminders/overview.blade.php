@@ -12,21 +12,7 @@
             </div>
             <p class="font-bold text-lg">{{ $today }}</p>
         </div>
-    </a>
-
-    <a href="{{ route('reminders.folder', 'archived') }}" wire:navigate
-        class="{{ $this->isActive(route('reminders.folder', 'archived')) ? 'text-white bg-[#F19E39]' : 'bg-gray-200' }} rounded text-xs p-2">
-        <div class="flex items-start justify-between">
-            <div>
-                <span class="material-symbols-outlined w-2 h-2"
-                    style="color: {{ $this->isActive(route('reminders.folder', 'archived')) ? 'white' : '#F19E39' }}">
-                    archive
-                </span>
-                <p class="ms-1">Archived</p>
-            </div>
-            <p class="font-bold text-lg">{{ $archived }}</p>
-        </div>
-    </a>
+    </a> 
 
     <a href="{{ route('reminders.folder', 'all') }}" wire:navigate
         class="{{ $this->isActive(route('reminders.folder', 'all')) ? 'text-white bg-[#5f6368]' : 'bg-gray-200' }} rounded text-xs p-2">

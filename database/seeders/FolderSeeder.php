@@ -31,7 +31,6 @@ class FolderSeeder extends Seeder
             DB::table('folders')->insert([
                 'title' => $title,
                 'slug' => Str::slug($title),
-                'is_archived' => $faker->boolean,
                 'color' => $faker->hexColor,
                 'is_pinned' => $faker->boolean,
                 'user_id' => rand(1, 4),
