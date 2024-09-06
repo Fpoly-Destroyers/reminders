@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('folders', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->unique();
+            $table->string('title');
             $table->string('slug')->unique();
             $table->tinyInteger('is_archived')->default(0)->comment('0: not archived, 1: archived');
             $table->string('password')->nullable();
@@ -21,7 +21,6 @@ return new class extends Migration
             $table->tinyInteger('is_pinned')->default(0)->comment('0: not pinned, 1: pinned');
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
