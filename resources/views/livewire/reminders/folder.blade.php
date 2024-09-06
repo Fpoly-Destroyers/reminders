@@ -66,7 +66,16 @@
                     </span>
                     Lock
                 </div>
-            </li> 
+            </li>
+            <li>
+                <div class="delete-folder flex items-center my-1 mx-3 p-2 hover:bg-gray-200 text-red-500 rounded-lg"
+                    wire:confirm.prompt="Are you sure you want to delete this folder? \nNote: Tasks in this folder cannot be recovered after deletion! \n\nType &quot;DELETE&quot; to confirm delete.|DELETE">
+                    <span class="material-symbols-outlined me-3" style="font-size: 18px !important">
+                        delete
+                    </span>
+                    Delete
+                </div>
+            </li>
         </ul>
     </div>
 </div>

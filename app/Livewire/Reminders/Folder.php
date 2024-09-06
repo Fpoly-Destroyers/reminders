@@ -29,13 +29,21 @@ class Folder extends Component
         $this->folders = Auth::user()->folders()->orderBy('is_pinned', 'desc')->get();
     }
 
-    public function pin($slug)
+    public function pinFolder($slug)
     {
         $folder = Auth::user()->folders()->where('slug', $slug)->first();
         $folder->is_pinned = !$folder->is_pinned;
         $folder->save();
         $this->loadFolders();
-    } 
+        $this->dispatch('loadOverviews');
+    }
+
+    public function deleteFolder($slug)
+    { 
+        $folder = Auth::user()->folders()->where('slug', $slug)->first();
+        $folder->delete();
+        $this->loadFolders();
+    }
 
     public function editFolder($slug)
     {

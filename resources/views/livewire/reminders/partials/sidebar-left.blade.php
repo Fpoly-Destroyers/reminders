@@ -40,6 +40,7 @@
                 const myFolders = document.querySelector('.sidebar-left');
                 const editFolder = contextMenu.querySelector('.edit-folder');
                 const pinFolder = contextMenu.querySelector('.pin-folder');
+                const deleteFolder = contextMenu.querySelector('.delete-folder');
 
                 const showContextMenu = (event, slug) => {
                     event.preventDefault();
@@ -48,7 +49,8 @@
                     contextMenu.style.top = `${event.pageY}px`;
                     myFolders.classList.add('pointer-events-none');
                     editFolder.setAttribute('wire:click', `editFolder('${slug}')`);
-                    pinFolder.setAttribute('wire:click', `pin('${slug}')`); 
+                    pinFolder.setAttribute('wire:click', `pinFolder('${slug}')`); 
+                    deleteFolder.setAttribute('wire:click', `deleteFolder('${slug}')`);
                 };
 
                 document.addEventListener('contextmenu', (event) => {

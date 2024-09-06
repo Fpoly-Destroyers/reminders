@@ -23,6 +23,5 @@
         //     });
         // }, 1000);
         var toast = document.querySelector(".toast-message");
-        console.log(toast);
     </script>
 </div>

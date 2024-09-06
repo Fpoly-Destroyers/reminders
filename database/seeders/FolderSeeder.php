@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Folder;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 use Faker\Factory as Faker;
 use Illuminate\Support\Str;
 
@@ -28,7 +27,7 @@ class FolderSeeder extends Seeder
 
             $usedTitles[] = $title;
 
-            DB::table('folders')->insert([
+            Folder::create([
                 'title' => $title,
                 'slug' => Str::slug($title),
                 'color' => $faker->hexColor,
@@ -36,7 +35,6 @@ class FolderSeeder extends Seeder
                 'user_id' => rand(1, 4),
                 'created_at' => $now,
                 'updated_at' => $now,
-                'deleted_at' => $now,
             ]);
         }
     }

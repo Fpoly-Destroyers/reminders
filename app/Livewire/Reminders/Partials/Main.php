@@ -14,7 +14,12 @@ class Main extends Component
         $this->folder = $folder;
         $this->tasks = $tasks;
     }
-    
+
+    public function addTask()
+    {
+        $this->dispatch('addTask');
+    }
+
     public function render()
     {
         return view('livewire.reminders.partials.main');

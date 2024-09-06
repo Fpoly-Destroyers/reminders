@@ -12,7 +12,6 @@ class Task extends Component
     public $folder;
     public $slug;
 
-
     public function mount($folder, $tasks)
     {
         $this->folder = $folder;
