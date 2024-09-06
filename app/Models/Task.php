@@ -21,10 +21,16 @@ class Task extends Model
         'image',
         'folder_id',
         'status',
+        'user_id',
     ];
 
     public function folder()
     {
         return $this->belongsTo(Folder::class);
+    }
+
+    public function reminders()
+    {
+        return $this->hasMany(Reminder::class);
     }
 }

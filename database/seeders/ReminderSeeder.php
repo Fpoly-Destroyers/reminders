@@ -28,6 +28,7 @@ class ReminderSeeder extends Seeder
                 'reminder_unit' => $reminder_unit,
                 'repeat_count' => rand(1, 10),
                 'repeat_unit' => $repeat_unit,
+                'end_repeat_date' => $now->addDays(rand(1, 10)),
                 'created_at' => $now,
                 'updated_at' => $now,
             ]);

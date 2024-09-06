@@ -21,9 +21,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             UserSeeder::class,
-            FolderSeeder::class, 
+            FolderSeeder::class,
             TaskSeeder::class,
-            TaskUserSeeder::class, 
             ReminderSeeder::class,
         ]);
     }

@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('reminders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('task_id')->constrained(); 
+            $table->foreignId('task_id')->constrained();
             $table->integer('reminder_time');
             $table->enum('reminder_unit', ['hour', 'day', 'week', 'month', 'year']);
             $table->integer('repeat_count')->nullable();
             $table->enum('repeat_unit', ['day', 'week', 'month', 'year'])->nullable();
+            $table->date('end_repeat_date')->nullable();
             $table->timestamps();
         });
     }
