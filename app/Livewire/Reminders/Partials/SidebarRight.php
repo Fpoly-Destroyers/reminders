@@ -11,7 +11,7 @@ class SidebarRight extends Component
         'data' => null,
     ];
     
-    protected $listeners = ['editFolder' => 'editFolder', 'addFolder' => 'addFolder'];
+    protected $listeners = ['editFolder' => 'editFolder', 'addFolder' => 'addFolder', 'addTask' => 'addTask'];
 
     public function editFolder($slug)
     { 
@@ -27,6 +27,13 @@ class SidebarRight extends Component
     {
         $this->content = [
             'component' => 'reminders.add-folder',
+            'data' => null,
+        ];
+    }
+
+    public function addTask() {
+        $this->content = [
+            'component' => 'reminders.add-task',
             'data' => null,
         ];
     }

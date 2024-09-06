@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug')->unique();
-            $table->tinyInteger('is_archived')->default(0)->comment('0: not archived, 1: archived');
             $table->string('password')->nullable();
             $table->string('color')->default('#808080');
             $table->tinyInteger('is_pinned')->default(0)->comment('0: not pinned, 1: pinned');

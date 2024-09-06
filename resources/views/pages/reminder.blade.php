@@ -36,7 +36,7 @@
             <div class="flex">
                 <div class="w-2/3">
                     <div class="border-r border-gray-200 px-4">
-                        @livewire('reminders.partials.main')
+                        @livewire('reminders.partials.main', ['folder' => $folder, 'tasks' => $tasks])
                     </div>
                 </div>
                 <div class="w-1/3">

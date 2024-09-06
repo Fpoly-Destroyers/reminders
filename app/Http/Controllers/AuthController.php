@@ -7,6 +7,7 @@ use App\Http\Requests\RegisterRequest;
 use App\Models\User;
 use App\Http\Requests\LoginRequest;
 use App\Mail\RecoveryPassword;
+use App\Models\Folder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -41,7 +42,18 @@ class AuthController extends Controller
     {
         $data = $request->all();
         $data['password'] = bcrypt($data['password']);
-        if (User::create($data)) {
+
+        $user = User::create($data);
+        if ($user) {
+            // Create folder default
+            Folder::create([
+                'title' => 'My Folder',
+                'slug' => createSlug($user->fullname) . '-my-folder',
+                'password' => null,
+                'color' => '#4285F4',
+                'is_pinned' => 0,
+                'user_id' => $user->id,
+            ]);
             return redirect()->route('login')->with('success', 'Account created successfully.');
         }
         return back()->with('error', 'Failed to create account.');

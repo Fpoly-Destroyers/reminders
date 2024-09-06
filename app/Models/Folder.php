@@ -12,7 +12,6 @@ class Folder extends Model
     protected $fillable = [
         'title', 
         'slug',
-        'is_archived',
         'password',
         'color',
         'is_pinned',

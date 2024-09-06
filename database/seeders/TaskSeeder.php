@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Task;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 use Faker\Factory as Faker;
 use Illuminate\Support\Str;
 
@@ -19,10 +18,10 @@ class TaskSeeder extends Seeder
     {
         $faker = Faker::create();
         $now = now();
-        for ($i=0; $i < 10; $i++) {
+        for ($i = 0; $i < 100; $i++) {
             $title = $faker->unique()->word;
 
-            DB::table('tasks')->insert([
+            Task::create([
                 'title' => $title,
                 'slug' => Str::slug($title),
                 'content' => $faker->paragraph(),
@@ -30,11 +29,12 @@ class TaskSeeder extends Seeder
                 'on_time' => $faker->time(),
                 'location' => 'Hà Nội',
                 'url' => $faker->url(),
-                'folder_id' => rand(1,10),
-                'status' => rand(0,1),
+                'folder_id' => rand(1, 10),
+                'status' => rand(0, 1),
+                'user_id' => rand(1, 4),
                 'created_at' => $now,
                 'updated_at' => $now,
-                'deleted_at' => $now,
+                'deleted_at' => null,
             ]);
         }
     }

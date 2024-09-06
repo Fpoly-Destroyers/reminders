@@ -2,7 +2,7 @@
     <p class="text-xs font-medium mb-2">Calendar</p>
     <div class="mt-5">
         <div class="flex items-center justify-between">
-            <div class="w-4/5 px-3 flex justify-between">
+            <div class="w-4/6 px-3 flex justify-between">
                 <span tabindex="0"
                     class="focus:outline-none dark:text-gray-100 text-gray-800 text-sm font-semibold">{{ $monthName . ' ' . $changeYear }}
                     @php
@@ -15,17 +15,17 @@
                         <span class="text-red-500 dark:text-red-100 text-xs" style="line-height: 0.5">•<span>
                     @endif
                 </span>
+            </div>
+
+            <div class="w-2/6 flex justify-between">
                 @if ($currentMonth != $changeMonth || $currentYear != $changeYear)
                     <button aria-label="calendar goToToday" wire:click="goToToday"
-                        class="flex items-center hover:text-gray-400 text-gray-800 dark:text-gray-100">
+                        class="flex items-center hover:text-gray-400 text-gray-800 dark:text-gray-100 me-2">
                         <span class="material-symbols-outlined hover:cursor-pointer">
                             reply
                         </span>
                     </button>
                 @endif
-            </div>
-
-            <div class="w-1/5 flex justify-between">
                 <button aria-label="calendar backward" wire:click="previous"
                     class="flex items-center hover:text-gray-400 text-gray-800 dark:text-gray-100">
                     <span class="material-symbols-outlined">
@@ -104,7 +104,7 @@
                                         <div class="py-2 flex w-full justify-center">
                                             <p class="opacity-0">
                                                 ...
-                                            </p> 
+                                            </p>
                                         </div>
                                     </td>
                                 @endif

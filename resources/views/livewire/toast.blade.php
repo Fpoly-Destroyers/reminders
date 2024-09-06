@@ -1,6 +1,6 @@
 <div class="toast-box">
     @if ($type && $title && $message)
-        <div class="toast-message absolute right-5 top-6 max-w-full overflow-hidden">
+        <div class="toast-message absolute right-5 top-6 max-w-full overflow-hidden" id="toast-message">
             <div
                 class="animate-toast-slide transition duration-1000 flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded shadow-lg">
                 <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 rounded"
@@ -16,4 +16,12 @@
             </div>
         </div>
     @endif
+    <script>
+        // setTimeout(() => {
+        //     document.querySelectorAll(".toast-message").forEach((toast) => {
+        //         toast.style.display = "none";
+        //     });
+        // }, 1000);
+        var toast = document.querySelector(".toast-message");
+    </script>
 </div>

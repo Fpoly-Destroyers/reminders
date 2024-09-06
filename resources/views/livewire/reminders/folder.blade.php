@@ -68,11 +68,12 @@
                 </div>
             </li>
             <li>
-                <div class="archive-folder flex items-center my-1 mx-3 p-2 hover:bg-gray-200 rounded-lg">
+                <div class="delete-folder flex items-center my-1 mx-3 p-2 hover:bg-gray-200 text-red-500 rounded-lg"
+                    wire:confirm.prompt="Are you sure you want to delete this folder? \nNote: Tasks in this folder cannot be recovered after deletion! \n\nType &quot;DELETE&quot; to confirm delete.|DELETE">
                     <span class="material-symbols-outlined me-3" style="font-size: 18px !important">
-                        archive
+                        delete
                     </span>
-                    Archived
+                    Delete
                 </div>
             </li>
         </ul>

@@ -7,8 +7,7 @@ use Livewire\Component;
 
 class Overview extends Component
 {
-    public $today;
-    public $archived;
+    public $today; 
     public $all;
     public $trashed;
     public $currentPath;
@@ -30,7 +29,6 @@ class Overview extends Component
     public function loadOverviews()
     {
         $this->today = Auth::user()->tasks()->whereDate('on_date', now()->format('Y-m-d'))->count();
-        $this->archived = Auth::user()->folders()->where('is_archived', 1)->count();
         $this->all = Auth::user()->tasks()->count();
         $this->trashed = Auth::user()->tasks()->onlyTrashed()->count();
     }
@@ -39,7 +37,6 @@ class Overview extends Component
     {
         return view('livewire.reminders.overview', [
             'today' => $this->today,
-            'archived' => $this->archived,
             'all' => $this->all,
             'trashed' => $this->trashed,
         ]);

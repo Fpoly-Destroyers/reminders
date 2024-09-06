@@ -18,6 +18,7 @@ return new class extends Migration
             $table->enum('reminder_unit', ['hour', 'day', 'week', 'month', 'year']);
             $table->integer('repeat_count')->nullable();
             $table->enum('repeat_unit', ['day', 'week', 'month', 'year'])->nullable();
+            $table->date('end_repeat_date')->nullable();
             $table->timestamps();
         });
     }

@@ -75,7 +75,6 @@ class EditFolder extends Component
         $data = [
             'title' => $this->title,
             'slug' => createSlug($this->title),
-            'is_archived' => 0,
             'password' => empty($this->password) ? null : $this->password,
             'color' => $this->color,
             'is_pinned' => $this->is_pinned,
