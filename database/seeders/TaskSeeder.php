@@ -32,6 +32,7 @@ class TaskSeeder extends Seeder
                 'url' => $faker->url(),
                 'folder_id' => rand(1,10),
                 'status' => rand(0,1),
+                'user_id' => rand(1,3),
                 'created_at' => $now,
                 'updated_at' => $now,
                 'deleted_at' => $now,

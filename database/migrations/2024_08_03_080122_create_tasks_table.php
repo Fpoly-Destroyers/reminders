@@ -13,7 +13,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tasks', function (Blueprint $table) {
-            $table->id(); 
+            $table->id();
             $table->string('title');
             $table->string('slug')->unique();
             $table->text('content')->nullable();
@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->foreignId('folder_id')->constrained();
             $table->tinyInteger('status')->default(0)->comment('0: not done, 1: done');
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
             $table->softDeletes();
         });
