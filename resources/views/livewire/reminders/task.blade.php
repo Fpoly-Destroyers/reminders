@@ -41,7 +41,7 @@
                     </div>
                     <div id="delete-modal-{{ $task->id }}" tabindex="-1" key="{{ $task->id }}"
                         class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-                        <div class="relative p4 w-full max-w-md max-h-full">
+                        <div class="relative p4 w-full max-w-md max-h-full">    
                             <div
                                 class="flex flex-col justify-betweenrelative bg-white rounded shadow dark:bg-gray-700 p-4 min-h-[240px]">
                                 <div class="flex items-center justify-between">

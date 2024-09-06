@@ -2,10 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Folder;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth; 
 use stdClass;
 
 class ReminderController extends Controller
@@ -15,7 +12,6 @@ class ReminderController extends Controller
         return view('pages.reminders.index');
     }
 
-    //     return view('pages.reminder', compact('slug'));
     public function folder($slug)
     {
         $user = Auth::user();
@@ -40,7 +36,7 @@ class ReminderController extends Controller
                 $folder->title = 'All';
                 $folder->slug = 'all';
                 $folder->count = $tasks->count();
-                break; 
+                break;
 
             case 'trashed':
                 $folder->title = 'Trashed';
@@ -68,7 +64,7 @@ class ReminderController extends Controller
         return view('pages.reminder', [
             'folder' => $folder,
             'tasks' => $tasks,
-        ]); 
+        ]);
     }
 
     public function date($year, $month, $day)
@@ -78,6 +74,17 @@ class ReminderController extends Controller
             'month' => $month,
             'day' => $day
         ]);
-        return view('pages.reminder');
+
+        $user = Auth::user();
+
+        $tasks = $user->tasks()
+            ->where('on_date', "$year-$month-$day")
+            ->orderBy('on_date', 'desc')
+            ->get();
+            
+        return view('pages.reminder', [
+            'folder' => null,
+            'tasks' => $tasks,
+        ]);
     }
 }
