@@ -14,6 +14,9 @@ class ReminderController extends Controller
 
     public function folder($slug)
     {
+        // Delete session selectedDate if exists
+        session()->forget('selectedDate');
+        
         $user = Auth::user();
         $tasks = collect();
         $folder = new stdClass();
