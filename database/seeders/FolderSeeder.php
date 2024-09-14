@@ -32,7 +32,7 @@ class FolderSeeder extends Seeder
                 'slug' => Str::slug($title),
                 'color' => $faker->hexColor,
                 'is_pinned' => $faker->boolean,
-                'user_id' => rand(1, 4),
+                'user_id' => 1,
                 'created_at' => $now,
                 'updated_at' => $now,
             ]);
