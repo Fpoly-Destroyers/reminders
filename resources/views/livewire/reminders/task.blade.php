@@ -55,7 +55,7 @@
                                     </button>
                                 </div>
                                 <div class="p-4 text-center">
-                                    <span class="material-symbols-outlined text-orange-500">
+                                    <span class="material-symbols-outlined text-red-500">
                                         warning
                                     </span>
                                     <p class="text-sm text-gray-600 dark:text-gray-400">Are you sure you want to delete

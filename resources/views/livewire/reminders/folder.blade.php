@@ -1,7 +1,7 @@
 <div>
     <div class="flex items-center justify-between mb-2">
         <p class="text-xs font-medium">My Folder</p>
-        <div class="text-blue-700 hover:text-blue-900" wire:click="addFolder">
+        <div class="text-blue-700 hover:text-blue-900 hover:cursor-pointer" wire:click="addFolder">
             <span class="material-symbols-outlined">
                 add_box
             </span>
